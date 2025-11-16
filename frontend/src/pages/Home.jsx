@@ -1,17 +1,21 @@
-import React from 'react'
-import { useEffect, useState } from "react";
-import axios from 'axios';
+import { Link } from "react-router-dom";
+
 function Home() {
-      const [msg, setMsg] = useState("");
-      useEffect(() => {
-      axios.get("/api/test").then(res => setMsg(res.data.message));
-  }, []);
   return (
-    <div>
-        <h1>Welcome to Travel Website 🏝️</h1>
-        <p>Backend says: {msg}</p>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Welcome to Travel Website 🏝️</h1>
+      <p>Explore destinations and plan your trips easily.</p>
+
+      <div style={{ marginTop: "30px" }}>
+        <Link to="/register" style={{ marginRight: "20px" }}>
+          <button>Register</button>
+        </Link>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
